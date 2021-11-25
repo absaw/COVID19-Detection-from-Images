@@ -1,1 +1,2 @@
-# COVID19 - Detection from Images
+ COVID19-Detection-from-Images
+
