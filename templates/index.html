@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Covid-19 Detector</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<!-- <link rel="stylesheet" href="../static/style.css"> -->
+	<script>
+		var helpdesk = {'Andhra Pradesh': '0866-2410978',
+		'Arunachal Pradesh' : '9536055743',
+		'Assam': '6913347770',
+		'Bihar' : '104',
+		'Chhattisgarh' : '077122-35091',
+		'Goa' : '104',
+		'Gujarat' : '104',
+		'Haryana' : '8558893911',
+		'Himachal Pradesh' : '104',
+		'Jharkhand' : '104',
+		'Karnataka' : '104',
+		'Kerala' : '0471-2552056',
+		'Madhya Pradesh' : '0755-2527177',
+		'Maharashtra' : '020-26127394',
+		'Manipur' : '3852411668',
+		'Meghalaya' : '9366090748',
+		'Mizoram' : '102',
+		'Nagaland' : '7005539653',
+		'Odisha' : '9439994859',
+		'Punjab' : '104',
+		'Rajasthan' : '0141-2225624',
+		'Sikkim' : '104',
+		'Tamil Nadu' : '044-29510500',
+		'Telangana' : '104',
+		'Tripura' : '0381-2315879',
+		'Uttarakhand' : '104',
+		'Uttar Pradesh' : '18001805145',
+		'West Bengal' : '3323412600'      
+	};
+
+	function myFun() {
+		var HelplineNum = document.getElementById("state").value
+		var index = document.getElementById("state").selectedIndex
+		if (HelplineNum == 0) {
+			document.getElementById("help").innerHTML = "<b>Please selct state.</b>"
+		}
+		else
+			document.getElementById("help").innerHTML = "Helpline Number of your state is <b>" + HelplineNum+"</b>"
+	}
+
+	$(document).ready(function(){
+
+
+		for (var key in helpdesk){
+		// alert(key + helpdesk[key])
+		$('#state').append(new Option(key, helpdesk[key]));
+	}
+
+});
+</script>
+
+<style type="text/css">
+	#div1,#div2, #div3, #div4{
+		width: 700px;
+		text-align: justify;
+	}
+	#div5{
+		text-align: justify;
+		margin-left: 70px;
+	}
+</style>
+</head>
+<body class="text-center" style="background-color: rgb(222, 233, 233)">
+	<script>
+		function precautions() {
+			document.getElementById("div3").innerHTML =
+			"<h3>Precaution to be taken:</h3><br>" +
+			'<ul" >' +
+			'<li>Clean your hands often. Use soap and water, or an alcohol-based hand rub.</li>' +
+			'<li>Maintain a safe distance from anyone who is coughing or sneezing.</li>' +
+			'<li>Wear a mask when physical distancing is not possible.</li>' +
+			'<li>Don’t touch your eyes, nose or mouth.</li>' +
+			'<li>Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.</li>' +
+			"</ul>";
+			document.getElementById("div1").innerHTML = "";
+			document.getElementById("div2").innerHTML = "";
+			document.getElementById("div4").innerHTML = "";
+		}
+		function overview() {
+			document.getElementById("div1").innerHTML = document.getElementById(
+				"div1"
+				).innerHTML = `
+			Coronavirus disease (COVID-19) is an infectious disease caused by a
+			newly discovered coronavirus. <br><br>Most people infected with the COVID-19
+			virus will experience mild to moderate respiratory illness and
+			recover without requiring special treatment. Older people, and those
+			with underlying medical problems like cardiovascular disease,
+			diabetes, chronic respiratory disease, and cancer are more likely to
+			develop serious illness. <br><br>The best way to prevent and slow down
+			transmission is to be well informed about the COVID-19 virus, the
+			disease it causes and how it spreads. Protect yourself and others
+			from infection by washing your hands or using an alcohol based rub
+			frequently and not touching your face.<br><br> The COVID-19 virus spreads
+			primarily through droplets of saliva or discharge from the nose when
+			an infected person coughs or sneezes, so it’s important that you
+			also practice respiratory etiquette.
+			`;
+
+			document.getElementById("div3").innerHTML = "";
+			document.getElementById("div2").innerHTML = "";
+			document.getElementById("div4").innerHTML = "";
+		}
+		function Prevention() {
+			document.getElementById("div2").innerHTML =
+			"To prevent infection and to slow transmission of COVID-19, do the following:<br><br>" +
+			'<ul>' +
+			'<li>Wash your hands regularly with soap and water, or clean them with alcohol-based hand rub.</li>' +
+			'<li>Maintain at least 1 metre distance between you and people coughing or sneezing.</li>' +
+			'<li>Avoid touching your face.</li>' +
+			'<li>Cover your mouth and nose when coughing or sneezing.</li>' +
+			'<li>Stay home if you feel unwell.</li>' +
+			'<li>Refrain from smoking and other activities that weaken the lungs.</li>' +
+			'<li>Practice physical distancing by avoiding unnecessary travel and staying away from large groups of people.</li></ul>';
+			document.getElementById("div3").innerHTML = "";
+			document.getElementById("div1").innerHTML = "";
+			document.getElementById("div4").innerHTML = "";
+		}
+		function Symptoms() {
+			document.getElementById("div4").innerHTML =
+			"COVID-19 affects different people in different ways." +
+			"Most infected people will develop mild to moderate illness and recover without hospitalization.<br>" +
+			"Most common symptoms:<br>" +
+			'<ul>' +
+			'<li>Fever</li>' +
+			'<li>Dry cough</li>' +
+			'<li>Tiredness</li>' +
+			"</ul>" +
+			"Less common symptoms:<br>" +
+			'<ul>' +
+			'<li>aches and pains.</li>' +
+			'<li>sore throat.</li>' +
+			'<li>diarrhoea.</li>' +
+			'<li>conjunctivitis.</li>' +
+			'<li>headache.</li>' +
+			'<li>loss of taste or smell.</li>' +
+			'<li>a rash on skin, or discolouration of fingers or toes.</li>' +
+			"</ul>" +
+			"Serious symptoms:<br>" +
+			'<ul>' +
+			'<li>difficulty breathing or shortness of breath.</li>' +
+			'<li>chest pain or pressure.</li>' +
+			'<li>loss of speech or movement.</li>' +
+			"</ul>" +
+			"Seek immediate medical attention if you have serious symptoms.  Always call before visiting your doctor or health facility.<br><br>" +
+			"People with mild symptoms who are otherwise healthy should manage their symptoms at home. <br><br>" +
+			"On average it takes 5–6 days from when someone is infected with the virus for symptoms to show, however it can take up to 14 days. ";
+
+			document.getElementById("div3").innerHTML = "";
+			document.getElementById("div1").innerHTML = "";
+			document.getElementById("div2").innerHTML = "";
+		}
+		function navigate() {
+			window.open("/detect");
+		}
+
+		var hidden = false;
+		function openForm() {
+			document.getElementById("myForm").style.display = "block";
+			hidden = !hidden;
+			if(hidden) {
+				document.getElementById('togglee').style.visibility = 'hidden';
+			} else {
+				document.getElementById('togglee').style.visibility = 'visible';
+			}
+		}
+
+		function closeForm() {
+			document.getElementById("myForm").style.display = "none";
+			hidden = !hidden;
+			if(hidden) {
+				document.getElementById('togglee').style.visibility = 'hidden';
+			} else {
+				document.getElementById('togglee').style.visibility = 'visible';
+			}
+		}
+	</script>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="../new.html"
+				><img
+				src="file:///C:/Users/s.reddy.julakanti/Downloads/favicon-32x32.png"
+				alt=""
+				/></a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="#" onclick="overview()">Overview</a></li>
+				<li><a href="#" onclick="Prevention()">Prevention</a></li>
+				<li><a href="#" onclick="Symptoms()">Symptoms</a></li>
+				<li><a href="#" onclick="precautions()">Precautions</a></li>
+			</ul>
+			<!-- <button class="btn btn-danger navbar-btn" onclick="navigate()">DETECT</button> -->
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<button class="btn btn-danger navbar-btn" onclick="navigate()">
+						DETECT
+					</button>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<div id="div1">
+
+				Coronavirus disease (COVID-19) is an infectious disease caused by a
+				newly discovered coronavirus. <br><br>Most people infected with the COVID-19
+				virus will experience mild to moderate respiratory illness and
+				recover without requiring special treatment. Older people, and those
+				with underlying medical problems like cardiovascular disease,
+				diabetes, chronic respiratory disease, and cancer are more likely to
+				develop serious illness. <br><br>The best way to prevent and slow down
+				transmission is to be well informed about the COVID-19 virus, the
+				disease it causes and how it spreads. Protect yourself and others
+				from infection by washing your hands or using an alcohol based rub
+				frequently and not touching your face.<br><br> The COVID-19 virus spreads
+				primarily through droplets of saliva or discharge from the nose when
+				an infected person coughs or sneezes, so it’s important that you
+				also practice respiratory etiquette.
+
+			</div>
+			<div id="div2"></div>
+			<div id="div3"></div>
+			<div id="div4"></div>
+		</div>
+
+	</div>
+
+	<div id="div5">
+		Central Helpline Number for corona-virus - <b>11-23978043/11-23978046</b><br>
+		Helpline email ID : <b>ncov2019@gov.in</b> OR <b>ncov2019@gmail.com</b> <br><br>
+		Get Helpdesk Number of your state:<br>
+
+		Select State: <select name="state" id="state" onselect="myFun()">
+			<option value="0">---Select State---</option>
+		</select>
+		<button onclick="myFun()">Submit</button><br>
+		<div id="help"></div>
+	</div>
+
+    <!-- <div>
+      <footer>
+        <iframe
+          allow="microphone;"
+          width="350"
+          height="430"
+          src="https://console.dialogflow.com/api-client/demo/embedded/e2937be2-2268-4ffb-a343-7bbb63374e5c"
+        >
+        </iframe>
+      </footer>
+  </div> -->
+  
+
+
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>COVID-19 Detector</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body >
+    <div class="header"><h1>Upload Image to be Diagnosed <h1></div>
+    <br>
+    <div class="content-major">
+        <div class="content">
+          <!-- <p>Select type of Image:</p> -->
+    </div>
+        <form action = "/detect" method = "POST" enctype="multipart/form-data">  
+            <div class="radio">
+                <label for="chest" id="labelch"><input type="radio" name="options" id="chest" value="Chest X-Ray">Chest X-Ray</label>
+            </div>
+            <div class="radio">
+                <label for="cts" id="labelct"><input type="radio" name="options" id="cts" value="CT Scan">CT Scan</label>
+            <label for="upload1" id="label_1"></label>
+            <br><br>
+            <input type="file" accept="image/*" class="" name="file" id="upload1" onchange="showimg(event)"/>  <br><br>
+            <input type="submit" class="btn btn-success" value="Upload"></submit>  
+        </form>
+    </div>
+    <img id="output" width="200" />
+</div>
+
+    <!--
+    <div>
+        <form action = "/uploaded_ct" method = "post">  
+            <label for="upload2" id="label_2">
+                Click here to select and upload CT Scan Picture
+            </label>
+            <input type="file" name="file" id="upload2" onchange="showname_2()"/>  
+            <input type = "submit" value="Upload">  
+        </form>
+    </div>-->
+    {% if probability is defined: %}
+        <br><br>
+        <div >
+            {% if result=='covid' %}
+                <b>The possibility of the patient being COVID <i>POSITIVE</i> is  {{probability}} %</b>
+            {% elif result=='nonCovid' %}
+                <b>The possibility of the patient being COVID <i>NEGATIVE</i> is  {{probability}} %</b>
+            {% endif %}
+        </div>
+    {% endif %}
+<!-- <footer>
+    <iframe
+        allow="microphone;"
+        width="350"
+        height="430"
+        src="https://console.dialogflow.com/api-client/demo/embedded/e2937be2-2268-4ffb-a343-7bbb63374e5c"
+      >
+      </iframe>
+</footer> -->
+    <script type="text/javascript">
+        function checked(){ 
+            var ch = document.getElementById('chest')
+            var ct = document.getElementById('ctscan')
+            if(ch.checked){
+                document.getElementById('label_1').innerHTML = "inside checked";
+                    var picul = document.createElement('INPUT')
+                    picul.setAttribute('type', 'file')
+                    document.body.appendChild(picul)
+                }
+        }
+        function showimg(event) {
+        var image = document.getElementById("output");
+        image.src = URL.createObjectURL(event.target.files[0]);
+      }
+        function showname () {
+            var name_1 = document.getElementById('upload1'); 
+            document.getElementById('label_1').innerHTML = name_1.files.item(0).name; 
+
+            
+    };
+    function showname_2 () {
+      var name_2 = document.getElementById('upload2'); 
+      document.getElementById('label_2').innerHTML = name_2.files.item(0).name; 
+    };
+    </script>
+</body>
+
+</html>

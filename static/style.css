@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+}
+.header {
+  padding: 5px;
+  background-color: blueviolet;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: yellow;
+}
+.p1 {
+  color: blueviolet;
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 550;
+}
+
+.content-major {
+  display: flex;
+  justify-content: center;
+  padding-left: 100px;
+  padding-top: 50px;
+  /*box-shadow: 0 2px 4px gray;*/
+  width: 800px;
+  height: 550px;
+  margin: auto;
+}
+
+button {
+  background-color: crimson;
+  padding: 3px 7px 3px 7px;
+  font-weight: 300;
+  text-transform: capitalize;
+  /* border: none; */
+  border: 0.16em solid #b80404;
+  border-radius: 0.12em;
+}
+footer div {
+  background-color: blueviolet;
+  text-align: center;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
